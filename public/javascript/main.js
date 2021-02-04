@@ -89,14 +89,14 @@ class Personne{
         this.panier = panier
         this.se_deplacer = (lieu) => {
             this.lieu = lieu.nom
-            console.log(`${this.nom}se deplace dans ${lieu.nom}`);
+            console.log(`${this.nom}se deplace dans ${lieu.nom}`)
             
         }
         this.payer = (article) => {
             this.argent -= article.prix
             this.panier.push(article)
         }
-        this.couper = (x, y) => {
+        this.couper = (article) => {
             if (article.etat == "entier"){
                 article.etat = "coupé"
             }
@@ -129,15 +129,114 @@ class Personnage {
         this.nom = nom
         this.sac = sac
         this.argent = argent
-        this.prendre = (objet) => {
-
+        this.prendre = () => {
+            this.sac.push (boite.shift())
+            
         }
-        this.acheter = (vendeur, objet) => {
-
+        this.acheter = (vendeur, Objet) => {
+            this.argent = this.argent-Objet.prix
+            this.sac.push(vendeur.sac.shift())
         }
     }
 }
-let MahadBG = new Personnage ("MahadBG", [Marteau], 100)
-let Gauthier = new Personnage ("Gauthier", [Clous], 50)
+let MahadBG = new Personnage ("MahadBG", [], 100)
+let Antoine = new Personnage ("Antoine", [], 50)
+
+MahadBG.prendre (Boite)
+
+console.log (MahadBG.sac)
  */
 //-----------------------------
+// EXO 3.1.2
+/* 
+class Objet {
+    constructor(nom,prix){
+        this.nom=nom
+        this.prix=+prix
+    }
+
+}
+
+let couteau = new Objet ("couteau",358)
+
+let telephone = new Objet ("telephone", 750)
+
+let boite = [couteau,telephone]
+
+class Perosnne {
+    constructor(nom,sac,argent){
+        this.nom =nom
+        this.sac=sac
+        this.argent =+argent
+
+
+        this.prendre=() =>{
+            this.sac.push(boite.shift()) 
+        }
+        this.acheter=(vendeur,objet) =>{
+            this.argent= this.argent-objet.prix
+            this.sac.push(vendeur.sac.shift())
+        }
+    }
+
+}
+
+let arthur = new Perosnne ("arthur",[],1000)
+
+let paul = new Perosnne ("paul",[],1000)
+
+paul.prendre(boite);
+
+arthur.acheter(paul,paul.sac[0])
+
+console.log(arthur);
+ */
+//-----------------------------
+// EXO 3.1.3
+
+// class Objet{
+//     constructor(nom,prix){
+//         this.nom = nom;
+//         this.prix = prix;
+//     }
+// }
+
+// let couteau = new Objet("Couteau", 8);
+// let moulin = new Objet("moulin", 10);
+
+// let tableau = [couteau,moulin];
+
+// class Personnage{
+//     constructor(nom,sac,argent){
+//         this.nom = nom;
+//         this.sac = sac;
+//         this.argent = argent;
+//         this.prendre = (objet) =>{
+//             this.sac.push(objet.shift());
+//         },
+//         this.acheter = (vendeur,objet) =>{
+//             this.sac.push(vendeur.sac.splice(vendeur.sac.indexOf(objet),1).join());
+//         }
+//     }
+// }
+
+// let mahad = new Personnage("Mahad",[],100);
+// let yasmina = new Personnage("Yasmina",[],60);
+
+// yasmina.prendre(tableau);
+// mahad.prendre(tableau);
+
+// mahad.acheter(yasmina,couteau);
+
+// console.log(mahad.sac);
+
+
+//------------------------------
+// EXO 4.1
+class Lieu {
+    constructor (nom, personnes) {
+        this.nom = nom
+        this.personnes = personnes
+
+    }
+}
