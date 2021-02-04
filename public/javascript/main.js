@@ -55,7 +55,7 @@ Gauthier.sePresenter (Gauthier.nom)
  */
 //--------------------------------
 // EXO 2.1
-
+/* 
 class Lieux{
     constructor (nom, contenu, ingredients){
         this.nom = nom
@@ -87,14 +87,19 @@ class Personne{
         this.lieu = lieu
         this.argent = argent
         this.panier = panier
-        this.se_deplacer = (x) => {
-
+        this.se_deplacer = (lieu) => {
+            this.lieu = lieu.nom
+            console.log(`${this.nom}se deplace dans ${lieu.nom}`);
+            
         }
-        this.payer = (x) => {
-
+        this.payer = (article) => {
+            this.argent -= article.prix
+            this.panier.push(article)
         }
         this.couper = (x, y) => {
-
+            if (article.etat == "entier"){
+                article.etat = "coupé"
+            }
         }
 
     }
@@ -105,7 +110,7 @@ let maxime = new Personne ("maxime", "néant", 100, [])
 Personne.se_deplacer (Lieux)
 Personne.payer (Ingredients)
 Personne.couper (Ingredients)
-
+ */
 //----------------------------
 //EXO 3.1
 /* 
