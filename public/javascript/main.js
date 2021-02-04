@@ -234,9 +234,33 @@ console.log(arthur);
 //------------------------------
 // EXO 4.1
 class Lieu {
-    constructor (nom, personnes) {
+    constructor (nom, personnes = []) {
         this.nom = nom
         this.personnes = personnes
 
     }
 }
+class Personne{
+    constructor (nom, prenom, argent,){
+        this.nom = nom
+        this.prenom = prenom
+        this.argent = argent
+        this.seDeplacer = () => {
+            
+        }
+    }
+}
+class Bus{
+    constructor (personnes = [], caisse){
+        this.personnes = personnes
+        this.caisses = caisse
+        this.embarquer = () => {
+
+        }
+    }
+}
+
+let molengeek = new Lieu ("MolenGeek")
+let snack = new Lieu ("Snack")
+let maison = new Lieu ("Maison")
+let personne = new Personne ("Mcklay", "john",100)
