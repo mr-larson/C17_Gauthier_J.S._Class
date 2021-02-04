@@ -12,12 +12,21 @@
     margin: 0!important;
     padding: 0!important;
 }
+body{
+    background: linear-gradient(#000, rgb(23, 42, 155), rgb(202, 200, 200), rgb(23, 42, 155), #000);
+}
+.nom{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    color: azure;
+    text-shadow: 3px 3px 3px rgb(130, 37, 252);
+}
 .animation{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(#000, rgb(23, 42, 155), rgb(202, 200, 200), rgb(23, 42, 155), #000);
 }
 .loader{
     position: relative;

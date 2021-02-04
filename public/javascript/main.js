@@ -82,13 +82,33 @@ let paprika = new Ingredients ("paprika", "moulu", 1.5)
 let fromage = new Ingredients ("fromage", "coupé", 1.6)
 
 class Personne{
-    constructor (nom, lieu, argent, panier,)
+    constructor (nom, lieu, argent, panier){
+        this.nom = nom
+        this.lieu = lieu
+        this.argent = argent
+        this.panier = panier
+        this.se_deplacer = (x) => {
+
+        }
+        this.payer = (x) => {
+
+        }
+        this.couper = (x, y) => {
+
+        }
+
+    }
+
 }
 let maxime = new Personne ("maxime", "néant", 100, [])
 
+Personne.se_deplacer (Lieux)
+Personne.payer (Ingredients)
+Personne.couper (Ingredients)
+
 //----------------------------
 //EXO 3.1
-
+/* 
 class Objet{
     constructor (nom, prix){
         this.nom = nom
@@ -97,13 +117,22 @@ class Objet{
 }
 let Marteau = new Objet ("Marteau", 5)
 let Clous = new Objet ("Clous", 1)
-let Tableau = [Marteau, Clous]
+let Boite = [Marteau, Clous]
 
 class Personnage {
     constructor (nom, sac, argent){
         this.nom = nom
         this.sac = sac
         this.argent = argent
+        this.prendre = (objet) => {
+
+        }
+        this.acheter = (vendeur, objet) => {
+
+        }
     }
 }
-let 
+let MahadBG = new Personnage ("MahadBG", [Marteau], 100)
+let Gauthier = new Personnage ("Gauthier", [Clous], 50)
+ */
+//-----------------------------
