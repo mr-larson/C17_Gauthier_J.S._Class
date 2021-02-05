@@ -129,13 +129,15 @@ class Personnage {
         this.nom = nom
         this.sac = sac
         this.argent = argent
-        this.prendre = () => {
-            this.sac.push (boite.shift())
+        this.prendre = (objet) => {
+            this.sac.push (objet.shift())
             
         }
         this.acheter = (vendeur, Objet) => {
-            this.argent = this.argent-Objet.prix
-            this.sac.push(vendeur.sac.shift())
+            this.argent -= objet.prix
+            vendeur.argent += objet.prix
+            this.sac.push(objet)
+            nom.sac.splice(nom.sac.indexOf(objet), 1)
         }
     }
 }
@@ -143,9 +145,11 @@ let MahadBG = new Personnage ("MahadBG", [], 100)
 let Antoine = new Personnage ("Antoine", [], 50)
 
 MahadBG.prendre (Boite)
+Antoine.prendre (Boite)
 
-console.log (MahadBG.sac)
- */
+Antoine.acheter (MahaBG, Marteau)
+
+*/
 //-----------------------------
 // EXO 3.1.2
 /* 
@@ -233,6 +237,7 @@ console.log(arthur);
 
 //------------------------------
 // EXO 4.1
+//-------class---------
 class Lieu {
     constructor (nom, personnes = []) {
         this.nom = nom
@@ -240,27 +245,59 @@ class Lieu {
 
     }
 }
-class Personne{
-    constructor (nom, prenom, argent,){
+class Personne {
+    constructor (nom, prenom, argent){
         this.nom = nom
         this.prenom = prenom
         this.argent = argent
-        this.seDeplacer = () => {
-            
+        this.seDeplacer = (depart, arrivé, bus) => {
+            if (bus == null){
+                depart.personnes.splice(depart.personnes.indexOf(this))
+                arrivé.personnes.push()
+                console.log (`${}`)
+            }
+            else {
+                bus.embarquer(this, depart, destination)
+            }
         }
     }
 }
-class Bus{
-    constructor (personnes = [], caisse){
+class Bus {
+    constructor (personnes = [], caisse = 0){
         this.personnes = personnes
         this.caisses = caisse
-        this.embarquer = () => {
-
+        this.embarquer = (client) => {
+            if (client.agrent >= 2.80) {
+                client.argent -= 2.80
+                this.caisse += 2.80
+                depart.personnes.splice(depart, personnes.indexOf(client), 1)
+                arrivé.personne.push(client)
+                console.log ( `Bonjour ${client.prenom} vous allez à ${destination.nom}`)
+            }
+            else {
+                depart.personnes.splice(depart.personnes.indexOf(passager), 1)
+                destination.personne.push(passager)
+                console.log (`veuillez sortir du bus`)
+                console.log (`${client.prenom} se déplace à pied vers ${destination.nom}`)
+            }
         }
     }
 }
 
+//---------instances-------
 let molengeek = new Lieu ("MolenGeek")
 let snack = new Lieu ("Snack")
 let maison = new Lieu ("Maison")
-let personne = new Personne ("Mcklay", "john",100)
+
+let personne = new Personne ("Mcklay", "John", 100)
+let personne = new Personne ("Skywalker", "Luke", 1)
+
+let bus = new Bus ()
+
+//-------console.log---------
+console.log (`Il est 8h ${Personne.nom}  et il se trouve à ${Lieu.nom}`)
+console.log (`Il monte dans `)
+
+//--------toFixed--------
+console.log (client.argent.toFixed(2))
+console.log (bus.caisse.toFixed(2))
